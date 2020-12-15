@@ -1,0 +1,19 @@
+---
+- name: Launching Apache Webserver
+  hosts: 172.31.47.99
+  become: true
+  
+  tasks:
+  - name: Installing apache server
+    yum:
+      name: httpd
+      state: latest
+  - name: Enabling apache server
+    service:
+      name: httpd
+      enabled: true
+  - name: Installing git
+    yum:
+      name: git
+      state: true
+  
